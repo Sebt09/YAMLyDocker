@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: BDPedidos
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: BDPedidos
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: clave
+    ports:
+      - "3310:3306"
+    volumes:
+      - C:/Users/jsn43/OneDrive/Escritorio/Universidad/Decimo Semestre/Pedidos/BDPedidos:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
